@@ -1,0 +1,19 @@
+nav {
+  position:absolute;
+  right:25px;
+  height:40px;
+  line-height:40px;
+  top:30px;
+
+  ul {
+    li {
+      display:inline-block;
+      margin-left:25px;
+
+
+      a {
+        color:white;
+      }
+    }
+  }
+}
