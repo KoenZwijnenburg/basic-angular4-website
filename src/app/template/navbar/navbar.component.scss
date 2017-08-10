@@ -1,9 +1,9 @@
 nav {
   position:absolute;
-  right:25px;
+  right:0;
+  top:30px;
   height:40px;
   line-height:40px;
-  top:30px;
 
   ul {
     li {
@@ -13,6 +13,10 @@ nav {
 
       a {
         color:white;
+
+        &:hover {
+          color:black;
+        }
       }
     }
   }

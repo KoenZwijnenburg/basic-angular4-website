@@ -4,17 +4,22 @@ header {
   height:100px;
   background: $main-color;
   margin-bottom:25px;
-  position:relative;
+  margin-top:30px;
 
-  .logo {
-    position:absolute;
-    left:25px;
-    top:30px;
-    height:40px;
-    line-height:40px;
-    width:100px;
-    background:white;
-    color: #0066CC;
-    text-align:center;
+
+  .header-container {
+    position:relative;
+
+    .logo {
+      position:absolute;
+      top:30px;
+      height:40px;
+      line-height:40px;
+      width:100px;
+      background:white;
+      color: #0066CC;
+      text-align:center;
+    }
   }
+
 }

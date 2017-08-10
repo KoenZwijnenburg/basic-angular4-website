@@ -7,8 +7,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './template/header/header.component';
 import { NavbarComponent } from './template/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
-import { AboutComponent } from './pages/about/about.component';
-import { NewsComponent } from './pages/news/news.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { appRoutes } from './routing';
 import { RouterModule } from '@angular/router';
@@ -18,6 +16,14 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { RoutingService } from './routing.service';
+import { NewsModule } from './pages/news/news.module';
+import { GeneralPageComponent } from './pages/general-page/general-page.component';
+import { PageService } from './pages/general-page/page.service';
+import { SidebarComponent } from './template/sidebar/sidebar.component';
+
+const routing = new RoutingService();
+
 
 @NgModule({
   declarations: [
@@ -25,24 +31,26 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     HeaderComponent,
     NavbarComponent,
     HomeComponent,
-    AboutComponent,
-    NewsComponent,
     ContactComponent,
     FooterComponent,
+    GeneralPageComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    NewsModule,
     RouterModule.forRoot(
-      appRoutes,
+      routing.getRoutes()
     ),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
   ],
   providers: [
-    NavBarService
+    NavBarService,
+    PageService
   ],
   bootstrap: [AppComponent]
 })

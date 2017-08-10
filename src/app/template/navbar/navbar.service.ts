@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
-import  'rxjs/add/observable/of';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
+
 
 export interface NavBar {
   name: string;
@@ -13,11 +14,17 @@ export interface NavBar {
 @Injectable()
 export class NavBarService {
 
-  constructor(public db: AngularFireDatabase) {};
+  constructor(public db: AngularFireDatabase) {
+  };
 
   public getMenuItems() {
 
-      // return Observable.of(this.db.list('/menus'));
+    return this.db.list('/Menu').map(res => {
+      return res;
+    });
+
+
+    // return Observable.of(this.db.list('/menus'));
 
     // return Observable.of([
     //     {

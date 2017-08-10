@@ -11,17 +11,14 @@ export class NavbarComponent implements OnInit {
 
   menuItems: any;
 
-  constructor(public db: AngularFireDatabase) {
-    db.list('/Menu').subscribe(res => {
-      this.menuItems = res;
-      console.log(this.menuItems);
-    });
-
+  constructor(public navbarService: NavBarService) {
 
   }
 
   ngOnInit() {
-
+    this.navbarService.getMenuItems().subscribe(res => {
+      this.menuItems = res;
+    });
   }
 
 }

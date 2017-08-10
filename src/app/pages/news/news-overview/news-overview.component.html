@@ -1,0 +1,10 @@
+<h1>Latest news </h1>
+<div class="news-items">
+
+  <div class="news-item" *ngFor="let item of newsItems">
+    <h3>{{ item.title }}</h3>
+    <p>{{ item.body }}</p>
+    <a class="button" [routerLink]="item.$key">Read more..</a>
+  </div>
+
+</div>
